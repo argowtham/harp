@@ -1,8 +1,21 @@
 ---
 title: Harp Multiclass Logistic Regression with Stochastic Gradient Descent
 ---
+## Logistic Regression  
+Logistic regression is a classification technique which learns the functions of the form $f:X\rightarrow Y$ or $P(Y|X)$. It assumes that the target variable is discrete valued and the input vector $<X_1,. . . ,X_n>$ be any vector containing discrete or continuous values. It assumes a parametric form for the distribution $P(Y\ |\ X)$ where the parameters are estimated from the training data. 
 
-Multiclass logistic regression (MLR) is a classification method that generalizes logistic regression to multiclass problems, i.e. with more than two possible discrete outcomes. That is, it is a model that is used to predict the probabilities of the different possible outcomes of a categorically distributed dependent variable, given a set of independent variables.
+## Parametric model used by logistic regression  
+For a binary target variable $Y \in \{0,1\}$, the parametric model assumed is  
+$$
+P(Y=1\ |\ X)=\frac{1}{1+exp(w_0+\sum_{i=1}^nw_iX_i)}
+$$
+and 
+$$
+P(Y=0\ |\ X)=\frac{exp(w_0+\sum_{i=1}^nw_iX_i)}{1+exp(w_0+\sum_{i=1}^nw_iX_i)}
+$$
+
+## Multiclass logistic regression (MLR)  
+It is a classification method that generalizes logistic regression to multiclass problems, i.e. with more than two possible discrete outcomes. That is, it is a model that is used to predict the probabilities of the different possible outcomes of a categorically distributed dependent variable, given a set of independent variables.
 
 The process of the MLR algorithm is:
 
