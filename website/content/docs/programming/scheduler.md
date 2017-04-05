@@ -3,14 +3,14 @@ title: Schedulers
 ---
 
 # Content
-* [dynamic scheduler](#dynamic-scheduler)
-* [static scheduler](#static-scheduler)
+* [Dynamic scheduler](#dynamic-scheduler)
+* [Dtatic scheduler](#static-scheduler)
 
 
-# dynamic scheduler
+# Dynamic scheduler
 
 
-![dynamic-scheduler](/img/5-8-1.png)
+![Dynamic-scheduler](/img/5-8-1.png)
 
 
 1. All computation models can use this scheduler.
@@ -23,7 +23,7 @@ title: Schedulers
 
 ## Example
 
-Given three int[] data, find the maximum element in each array.
+Given three Integer arrays (int[]), find the maximum element in each array.  
 First of all, we need to define the `task`.
 ```java
 public class FindMaxTask implements Task<int[], Integer> {
@@ -41,7 +41,7 @@ public class FindMaxTask implements Task<int[], Integer> {
     }
 }
 ```
-The `findMaxs` funtion shows how to use dynamic scheduler to run similar tasks in parallel.
+The `findMaxs` function shows how to use dynamic scheduler to run similar tasks in parallel.
 
 ```java
 
@@ -55,8 +55,8 @@ public void findMaxs(){
         maxTasks.add(new FindMaxTask());
     }
     /*initialize the dynamic scheduler;
-    The data type of input is CenPair, the data type of output is Object;
-    The task is MaxTask*/
+    The data type of input is Integer array, the data type of output is Integer;
+    The task is FindMaxTask*/
     DynamicScheduler<int[], Integer, FindMaxTask> maxCompute
 	= new DynamicScheduler<>(maxTasks);
     /*Start the Dynamic Scheduler*/
@@ -79,9 +79,9 @@ public void findMaxs(){
 ```
 
 
-# static-scheduler
+# Static scheduler
 
-![static-scheduler](/img/5-7-1.png)
+![Static scheduler](/img/5-7-1.png)
 
 
 1. All computation models can use this scheduler.
@@ -94,8 +94,8 @@ public void findMaxs(){
 
 ## Example
 
-Given three int[] data, find the maximum element in each array.
-First of all, we need to define the `task`.
+We will use the same example above to explain the operation of the static scheduler. Given three Integer arrays (int[]) , find the maximum element in each array.  
+First of all, we need to define the `task`.  
 ```java
 public class FindMaxTask extends Task<int[], Integer> {
 
@@ -113,7 +113,7 @@ public class FindMaxTask extends Task<int[], Integer> {
 }
 
 ```
-The `findMaxs` funtion shows how to use dynamic scheduler to run similar tasks in parallel.
+The `findMaxs` function shows how to use static scheduler to run similar tasks in parallel.
 
 ```java
 
@@ -128,8 +128,8 @@ public void findMaxs(){
         maxTasks.add(new FindMaxTask());
     }
     /*
-     * initialize the dynamic scheduler; The data type of input is CenPair,
-     * the data type of output is Object; The task is MaxTask
+     * initialize the static scheduler; The data type of input is integer array,
+     * the data type of output is Integer (which is the maximum in every array); The task is FindMaxTask
      */
     StaticScheduler<int[], Integer, FindMaxTask> maxCompute = new StaticScheduler<>(maxTasks);
     /* Start the Dynamic Scheduler */
@@ -143,6 +143,7 @@ public void findMaxs(){
     maxCompute.submit(1,list1);
     maxCompute.submit(2,list2);
     maxCompute.submit(3,list3);
+
     /* Get results of task 1*/
     while (maxCompute.hasOutput(1)) {
         Integer out = maxCompute.waitForOutput(1);
