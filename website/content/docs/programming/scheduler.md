@@ -4,7 +4,7 @@ title: Schedulers
 
 # Content
 * [Dynamic scheduler](#dynamic-scheduler)
-* [Dtatic scheduler](#static-scheduler)
+* [Static scheduler](#static-scheduler)
 
 
 # Dynamic scheduler
