@@ -14,7 +14,23 @@ div[class^="landing-feature"] {
     max-height: 200px;
 
     .panel-heading {
-      font-size: 16px;
+      font-size: 24px;
+    }
+  }
+}
+
+div[class^="landing-narrow"] {
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+  .panel {
+    min-height: 150px;
+    max-height: 200px;
+
+    .panel-heading {
+      font-size: 24px;
     }
   }
 }
@@ -63,6 +79,24 @@ a:hover {
 .hn-jumbotron {
   border-radius: 0 !important;
   background-color: $heron-blue-gray;
+
+  img.hn-jumbotron-logo {
+    margin-bottom: 20px;
+  }
+
+  p.hn-tagline {
+    font-size: 20px;
+    color: $light-gray;
+  }
+
+  .hn-button-row .btn {
+    margin: 5px;
+  }
+}
+
+.hp-examples {
+  border-radius: 0 !important;
+  background-color: $harp-middle-grey;
 
   img.hn-jumbotron-logo {
     margin-bottom: 20px;
@@ -200,7 +234,7 @@ section.hn-docs-main {
     }
 
     img {
-      max-width: 90%;
+      max-width: 100%;
     }
 
     table {
@@ -240,9 +274,9 @@ section.hn-docs-main {
 .hn-footer {
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-top: 40px;
+  margin-top: 0px;
   color: $light-gray;
-  background-color: $heron-blue-gray;
+  background-color: $harp-dark-blue;
 
   .hn-footer-links {
     padding-left: 0;
