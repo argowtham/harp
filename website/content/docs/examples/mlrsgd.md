@@ -1,20 +1,20 @@
 # Multiclass Logistic Regression
 
-![Decision surface of Multiclass Logistic Regression](/img/4-3-1.png)
+![Decision surface of Multiclass Logistic Regression](/img/4-3-1.png){width=60%}
 
 Logistic Regression is a binary classifier which discriminates between target variable 1 or 0. It is a probabilistic based classifier where the function used is sigmoid function. Multiclass logistic regression (MLR) is a classification method which generalizes the logistic regression to multiclass problems, i.e., with more than two possible outcomes. MLR model predicts the probabilities of the different possible outcomes of a categorically distributed dependent variable, given a set of independent variables.
 
 ## Logistic Regression
 The algorithm for logistic regression model is as follows:  
-1. Initialize `w` weight vector randomly
+1. Initialize `w` weight vector randomly  
 2. Predict the probability of success or `P(Y=1)` using the following formula  
 ![Sigmoid function](/img/4-3-3.png)  
 where  
 `w` - Weight vector  &  
 `x` - Data point  
-3. Compare the predicted output and the actual output.
-4. Based on the error, compute the slope and use Gradient descent to approximate `w`
-5. Repeat steps 2-4 until there is no significant improvement in reducing the error rate
+3. Compare the predicted output and the actual output.  
+4. Based on the error, compute the slope and use Gradient descent to approximate `w`  
+5. Repeat steps 2-4 until there is no significant improvement in reducing the error rate  
 
 ## One vs Rest Methodology
 Here, we are adopting One vs Rest (OVR) methodology for performing multiclass logistic regression. This makes the weight vectors independent of each other and helps us in achieving parallelism in easier way. If our data has *'m'* classes and *'d'* dimensions, then our weight vector will be a *m\*d* matrix where *'m'* is the number of rows and *'d'* is the number of columns. The matrix is as shown below.  
@@ -24,10 +24,10 @@ Here, we are adopting One vs Rest (OVR) methodology for performing multiclass lo
 Stochastic gradient descent is the stochastic approximation of the gradient descent in which we take a random sample and use it for minimizing our objective function (error) which is written as a sum of partial derivatives. In other words, SGD tries to find minimum (descent) or maximum (ascent) by iteration. Normally, stochastic gradient can be slow to converge as it takes only one sample. Here, we try to improve on stochastic gradient by using thread level parallelism. This is achieved by the use of **Dynamic Scheduler**. As the algorithm sweeps through the training set, it performs the update for each training example. Several passes can be made over the training set until the algorithm converges.  
 
 The steps of the SGD algorithm are described as follows:  
-1. Randomly choose an initial weight vector `w` and learning rate parameter `r`
+1. Randomly choose an initial weight vector `w` and learning rate parameter `r`   
 2. Repeat until there is no improvement in prediction performance or for `k` iterations   
 	a. Select a data point randomly  
-    b. Update the weights based on the slope computed from partial derivatives
+    b. Update the weights based on the slope computed from partial derivatives  
 
 #### Notations
 * `n` - Number of data points
