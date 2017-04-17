@@ -1,6 +1,6 @@
 # Multiclass Logistic Regression
 
-<img src="/img/4-3-1.png"  width="60">
+<img src="/img/4-3-1.png"  width="400">
 
 Logistic Regression is a binary classifier which discriminates between target variable 1 or 0. It is a probabilistic based classifier where the function used is sigmoid function. Multiclass logistic regression (MLR) is a classification method which generalizes the logistic regression to multiclass problems, i.e., with more than two possible outcomes. MLR model predicts the probabilities of the different possible outcomes of a categorically distributed dependent variable, given a set of independent variables.
 
